@@ -1,0 +1,103 @@
+{% extends "blank_page.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Connexion - Dashboard Industriel{% endblock %}
+
+{% block content %}
+
+<div class="page-wrapper"
+     id="main-wrapper"
+     data-layout="vertical"
+     data-navbarbg="skin6"
+     data-sidebartype="full"
+     data-sidebar-position="fixed"
+     data-header-position="fixed">
+
+  <div class="position-relative overflow-hidden text-bg-light min-vh-100 d-flex align-items-center justify-content-center">
+
+    <div class="d-flex align-items-center justify-content-center w-100">
+      <div class="row justify-content-center w-100">
+        <div class="col-md-8 col-lg-6 col-xxl-3">
+
+          <div class="card mb-0 shadow-sm">
+            <div class="card-body">
+
+              <!-- Logo -->
+              <a href="{% url 'login' %}"
+                 class="text-nowrap logo-img text-center d-block py-3 w-100">
+                 <p class="text-center fw-semibold">CIAVEO</p>
+                </a>
+
+              <p class="text-center fw-semibold">Connexion au système industriel</p>
+
+              <!-- Messages -->
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-danger">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+              <!-- Form -->
+              <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                  <label class="form-label">Nom d'utilisateur</label>
+                  <input type="text"
+                         name="username"
+                         class="form-control"
+                         required>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label">Mot de passe</label>
+                  <input type="password"
+                         name="password"
+                         class="form-control"
+                         required>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div class="form-check">
+                    <input class="form-check-input primary"
+                           type="checkbox"
+                           id="rememberCheck">
+                    <label class="form-check-label text-dark"
+                           for="rememberCheck">
+                      Se souvenir de moi
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">
+                  Se connecter
+                </button>
+              </form>
+
+              <div class="d-flex align-items-center justify-content-center">
+                <p class="fs-4 mb-0 fw-bold">Pas encore de compte ?</p>
+                <a class="text-primary fw-bold ms-2"
+                   href="{% url 'register' %}">
+                  Créer un compte
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+
+  <div class="d-flex justify-content-between mb-4">
+    <h4>Ordres de Fabrication</h4>
+    <a href="{% url 'ordre_add' %}" class="btn btn-primary">Nouvel Ordre</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for o in ordres %}
+          <tr>
+            <td>{{ o.produit }}</td>
+            <td>{{ o.quantite }}</td>
+            <td>{{ o.statut }}</td>
+            <td>
+              <a href="{% url 'ordre_execute' o.id %}" class="btn btn-success btn-sm">
+                Exécuter
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

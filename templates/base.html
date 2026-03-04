@@ -1,0 +1,94 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}My Website{% endblock %}</title>
+
+<link rel="shortcut icon" type="image/png" href="{% static 'images/logos/favicon.png' %}" />
+<link rel="stylesheet" href="{% static 'css/styles.min.css' %}" />
+
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+<style>
+
+/* ===== RESPONSIVE SIDEBAR ===== */
+
+@media (max-width:991px){
+
+.left-sidebar{
+position:fixed;
+left:-260px;
+top:0;
+width:260px;
+height:100%;
+background:#fff;
+z-index:3000;
+transition:all .3s ease;
+box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+
+.left-sidebar.active{
+left:0;
+}
+
+.page-wrapper{
+margin-left:0 !important;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+{% include "partials/navbar.html" %}
+
+<div class="page-wrapper" id="main-wrapper"
+data-layout="vertical"
+data-navbarbg="skin6"
+data-sidebartype="full"
+data-sidebar-position="fixed"
+data-header-position="fixed">
+
+{% include "partials/sidebar.html" %}
+
+<main id="content">
+{% block content %}{% endblock %}
+</main>
+
+</div>
+
+
+<script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js' %}"></script>
+<script src="{% static 'libs/simplebar/dist/simplebar.js' %}"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const btn = document.getElementById("sidebarToggle");
+const sidebar = document.getElementById("sidebar");
+
+if(btn){
+
+btn.onclick = function(){
+
+sidebar.classList.toggle("active");
+
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

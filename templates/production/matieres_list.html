@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Matières Premières{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+  <h4 class="fw-bold mb-4">Matières Premières</h4>
+
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>Stock Actuel</th>
+            <th>Stock Minimum</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in matieres %}
+          <tr>
+            <td>{{ m.nom }}</td>
+            <td>{{ m.get_type_matiere_display }}</td>
+            <td>{{ m.stock_actuel }} T</td>
+            <td>{{ m.stock_minimum }} T</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

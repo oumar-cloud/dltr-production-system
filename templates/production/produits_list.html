@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Produits{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="fw-bold">Liste des Produits</h4>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Gamme</th>
+            <th>Sous-gamme</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for produit in produits %}
+          <tr>
+            <td>{{ produit.nom }}</td>
+            <td>{{ produit.get_gamme_display }}</td>
+            <td>{{ produit.get_sous_gamme_display }}</td>
+            <td>{{ produit.stock_actuel }} T</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
