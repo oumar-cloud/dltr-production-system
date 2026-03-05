@@ -4,19 +4,18 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <title>{% block title %}My Website{% endblock %}</title>
 
-<link rel="shortcut icon" type="image/png" href="{% static 'images/logos/favicon.png' %}" />
-<link rel="stylesheet" href="{% static 'css/styles.min.css' %}" />
-
-<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<link rel="shortcut icon" href="{% static 'images/logos/favicon.png' %}">
+<link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
 
 <style>
 
-/* ===== RESPONSIVE SIDEBAR ===== */
+/* SIDEBAR MOBILE */
 
-@media (max-width:991px){
+@media (max-width: 991px){
 
 .left-sidebar{
 position:fixed;
@@ -24,13 +23,12 @@ left:-260px;
 top:0;
 width:260px;
 height:100%;
-background:#fff;
-z-index:3000;
-transition:all .3s ease;
-box-shadow:0 0 20px rgba(0,0,0,0.15);
+background:white;
+z-index:1050;
+transition:0.3s;
 }
 
-.left-sidebar.active{
+.left-sidebar.show{
 left:0;
 }
 
@@ -48,17 +46,16 @@ margin-left:0 !important;
 
 {% include "partials/navbar.html" %}
 
-<div class="page-wrapper" id="main-wrapper"
-data-layout="vertical"
-data-navbarbg="skin6"
-data-sidebartype="full"
-data-sidebar-position="fixed"
-data-header-position="fixed">
+<div class="page-wrapper" id="main-wrapper">
 
 {% include "partials/sidebar.html" %}
 
-<main id="content">
-{% block content %}{% endblock %}
+<main class="body-wrapper">
+
+{% block content %}
+
+{% endblock %}
+
 </main>
 
 </div>
@@ -66,27 +63,23 @@ data-header-position="fixed">
 
 <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
 <script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js' %}"></script>
-<script src="{% static 'libs/simplebar/dist/simplebar.js' %}"></script>
 
 <script>
 
+/* MOBILE SIDEBAR */
+
 document.addEventListener("DOMContentLoaded", function(){
 
-const btn = document.getElementById("sidebarToggle");
-const sidebar = document.getElementById("sidebar");
+const menuBtn = document.getElementById("menuToggle")
+const sidebar = document.querySelector(".left-sidebar")
 
-if(btn){
+menuBtn.addEventListener("click", function(){
 
-btn.onclick = function(){
+sidebar.classList.toggle("show")
 
-sidebar.classList.toggle("active");
+})
 
-}
-
-}
-
-});
+})
 
 </script>
 
