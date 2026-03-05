@@ -1,74 +1,60 @@
 {% load static %}
 
-<aside class="left-sidebar" id="sidebar">
+<aside class="left-sidebar">
+  <div class="scroll-sidebar">
 
-<div class="scroll-sidebar">
+    <nav class="sidebar-nav">
 
-<nav class="sidebar-nav">
+      <ul id="sidebarnav">
 
-<ul id="sidebarnav">
+        <!-- Dashboard -->
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="/">
+            <span>Tableau de Bord</span>
+          </a>
+        </li>
 
-<li class="sidebar-item">
-<a class="sidebar-link" href="/">
-<i class="ti ti-dashboard"></i>
-<span>Tableau de Bord</span>
-</a>
-</li>
+        <!-- PRODUCTION -->
+        <li class="sidebar-item">
 
-<li class="sidebar-item">
+          <a class="sidebar-link has-arrow" href="javascript:void(0)">
+            Production
+          </a>
 
-<a class="sidebar-link has-arrow" href="javascript:void(0)">
-<i class="ti ti-factory"></i>
-<span>Production</span>
-</a>
+          <ul class="collapse first-level">
 
-<ul class="collapse first-level">
+            <li class="sidebar-item">
+              <a href="{% url 'ordres' %}" class="sidebar-link">
+                Ordres de Fabrication
+              </a>
+            </li>
 
-<li class="sidebar-item">
-<a href="{% url 'ordres' %}" class="sidebar-link">
-Ordres de Fabrication
-</a>
-</li>
+            <li class="sidebar-item">
+              <a href="{% url 'produits' %}" class="sidebar-link">
+                Produits
+              </a>
+            </li>
 
-<li class="sidebar-item">
-<a href="{% url 'produits' %}" class="sidebar-link">
-Produits
-</a>
-</li>
+            <li class="sidebar-item">
+              <a href="{% url 'livraisons' %}" class="sidebar-link">
+                Livraisons
+              </a>
+            </li>
 
-<li class="sidebar-item">
-<a href="{% url 'livraisons' %}" class="sidebar-link">
-Livraisons
-</a>
-</li>
+          </ul>
 
-<li class="sidebar-item">
-<a href="/admin/production/client/" class="sidebar-link">
-Clients
-</a>
-</li>
+        </li>
 
-<li class="sidebar-item">
-<a href="/admin/production/mouvementstock/" class="sidebar-link">
-Mouvements
-</a>
-</li>
+        <!-- MATIERES -->
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{% url 'matieres' %}">
+            Matières Premières
+          </a>
+        </li>
 
-</ul>
+      </ul>
 
-</li>
+    </nav>
 
-<li class="sidebar-item">
-<a class="sidebar-link" href="{% url 'matieres' %}">
-<i class="ti ti-leaf"></i>
-<span>Matières Premières</span>
-</a>
-</li>
-
-</ul>
-
-</nav>
-
-</div>
-
+  </div>
 </aside>

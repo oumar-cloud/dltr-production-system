@@ -63,25 +63,48 @@ margin-left:0 !important;
 
 <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
 <script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-
 <script>
 
-/* MOBILE SIDEBAR */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-const menuBtn = document.getElementById("menuToggle")
-const sidebar = document.querySelector(".left-sidebar")
-
-menuBtn.addEventListener("click", function(){
-
-sidebar.classList.toggle("show")
-
-})
-
-})
-
-</script>
+    document.addEventListener("DOMContentLoaded", function(){
+    
+    /* MENU MOBILE */
+    
+    const menuBtn = document.getElementById("menuToggle")
+    const sidebar = document.querySelector(".left-sidebar")
+    
+    menuBtn.addEventListener("click", function(){
+    
+    sidebar.classList.toggle("show")
+    
+    })
+    
+    /* SOUS MENU */
+    
+    const arrows = document.querySelectorAll(".has-arrow")
+    
+    arrows.forEach(function(arrow){
+    
+    arrow.addEventListener("click", function(){
+    
+    const submenu = this.nextElementSibling
+    
+    if(submenu.style.display === "block"){
+    
+    submenu.style.display = "none"
+    
+    }else{
+    
+    submenu.style.display = "block"
+    
+    }
+    
+    })
+    
+    })
+    
+    })
+    
+    </script>
 
 </body>
 </html>
