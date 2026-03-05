@@ -1,50 +1,7 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Environment
-.env
-venv/
 env/
-ENV/
-*.env
-
-# Django stuff:
-*.log
-*.pot
+__pycache__/
 *.pyc
 db.sqlite3
-media/
 staticfiles/
-static/
-
-# VS Code / PyCharm
+.env
 .vscode/
-.idea/
-
-# Byte-compiled / cache
-*.pyo
-*.pyd
-
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# Migrations (optional – if you auto-generate them)
-# ** Uncomment only if you want to ignore migrations **
-# */migrations/
-
-# Coverage / Testing
-htmlcov/
-.coverage
-.tox/
-.pytest_cache/
-
-# Local config
-local_settings.py
-
-# Node / frontend (if you use React, etc.)
-node_modules/
-build/
-dist/
