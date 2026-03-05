@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-#w@7wb)#kqd13kn_r%a5kz6x*r!cq$^w=5hs(9iq2n9d)%8x*f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", 'True').lower() in ['true', 'yes', '1']
 
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Current DJANGO_ENVIRONMENT
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+      'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'configs.urls'
@@ -138,9 +139,11 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "configs" / "src",  # points to your src folder
+ os.path.join(BASE_DIR, "configs/src"),
 ]
 
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # Default URL on which Django application runs for specific environment
 BASE_URL = os.environ.get("BASE_URL", default="http://127.0.0.1:8000")
 # Default primary key field type
