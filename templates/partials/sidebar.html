@@ -1,62 +1,147 @@
 {% load static %}
 
 <aside class="left-sidebar">
-  <div>
-    <div class="brand-logo d-flex align-items-center justify-content-between">
-      <a href="/" class="text-nowrap logo-img">
-        <img src="{% static 'images/logos/logo.svg' %}" width="180">
-      </a>
-    </div>
 
-    <nav class="sidebar-nav scroll-sidebar">
+<div>
 
-      <ul id="sidebarnav">
+<div class="brand-logo d-flex align-items-center justify-content-between">
 
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="/">
-            <span>Tableau de Bord</span>
-          </a>
-        </li>
+<a href="/" class="text-nowrap logo-img">
 
-        <li class="sidebar-item">
+<img src="{% static 'images/logos/cia.jpeg' %}" width="180">
 
-          <a class="sidebar-link has-arrow" href="javascript:void(0)">
-            <span>Production</span>
-          </a>
+</a>
 
-          <ul class="collapse first-level">
+<div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer">
 
-            <li class="sidebar-item">
-              <a href="{% url 'ordres' %}" class="sidebar-link">
-                Ordres de Fabrication
-              </a>
-            </li>
+<i class="ti ti-x fs-8"></i>
 
-            <li class="sidebar-item">
-              <a href="{% url 'produits' %}" class="sidebar-link">
-                Produits
-              </a>
-            </li>
+</div>
 
-            <li class="sidebar-item">
-              <a href="{% url 'livraisons' %}" class="sidebar-link">
-                Livraisons
-              </a>
-            </li>
+</div>
 
-          </ul>
 
-        </li>
+<nav class="sidebar-nav scroll-sidebar">
 
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="{% url 'matieres' %}">
-            Matières Premières
-          </a>
-        </li>
+<ul id="sidebarnav">
 
-      </ul>
 
-    </nav>
+<li class="sidebar-item">
 
-  </div>
+<a class="sidebar-link" href="/">
+
+<i class="ti ti-dashboard"></i>
+
+<span class="hide-menu">
+
+Dashboard
+
+</span>
+
+</a>
+
+</li>
+
+
+
+<li class="sidebar-item">
+
+<a class="sidebar-link has-arrow" href="javascript:void(0)">
+
+<i class="ti ti-factory"></i>
+
+<span class="hide-menu">
+
+Production
+
+</span>
+
+</a>
+
+<ul class="collapse first-level">
+
+
+<li class="sidebar-item">
+
+<a href="{% url 'ordres' %}" class="sidebar-link">
+
+Ordres Fabrication
+
+</a>
+
+</li>
+
+
+<li class="sidebar-item">
+
+<a href="{% url 'produits' %}" class="sidebar-link">
+
+Produits
+
+</a>
+
+</li>
+
+
+<li class="sidebar-item">
+
+<a href="{% url 'livraisons' %}" class="sidebar-link">
+
+Livraisons
+
+</a>
+
+</li>
+
+
+<li class="sidebar-item">
+
+<a href="/admin/production/client/" class="sidebar-link">
+
+Clients
+
+</a>
+
+</li>
+
+
+<li class="sidebar-item">
+
+<a href="/admin/production/mouvementstock/" class="sidebar-link">
+
+Mouvements
+
+</a>
+
+</li>
+
+</ul>
+
+</li>
+
+
+
+<li class="sidebar-item">
+
+<a class="sidebar-link" href="{% url 'matieres' %}">
+
+<i class="ti ti-leaf"></i>
+
+<span class="hide-menu">
+
+Matières Premières
+
+</span>
+
+</a>
+
+</li>
+
+
+</ul>
+
+</nav>
+
+</div>
+
 </aside>

@@ -1,39 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}DLTR Industrie Dashboard{% endblock %}
+{% block title %}Dashboard Production{% endblock %}
 
 {% block content %}
-
-<div class="container-fluid">
-
-<!-- HEADER -->
-<div class="row mb-4">
-
-<div class="col-md-8">
-
-<h4 class="fw-bold">
-Bienvenue {{ request.user.username }}
-</h4>
-
-<p class="text-muted">
-Système de gestion de production industrielle
-</p>
-
-</div>
-
-<div class="col-md-4 text-end">
-
-<a href="{% url 'logout' %}" class="btn btn-danger">
-Déconnexion
-</a>
-
-</div>
-
-</div>
-
-
-<!-- KPI PRINCIPAUX -->
 
 <div class="row">
 
@@ -43,10 +13,12 @@ Déconnexion
 
 <div class="card-body">
 
-<h6 class="card-title">Production du mois</h6>
+<h6>Production Mois</h6>
 
 <h3 class="fw-bold text-primary">
+
 {{ production_mois }} T
+
 </h3>
 
 </div>
@@ -62,10 +34,12 @@ Déconnexion
 
 <div class="card-body">
 
-<h6 class="card-title">Rendement moyen</h6>
+<h6>Rendement Moyen</h6>
 
 <h3 class="fw-bold text-success">
+
 {{ rendement_moyen }} %
+
 </h3>
 
 </div>
@@ -81,10 +55,12 @@ Déconnexion
 
 <div class="card-body">
 
-<h6 class="card-title">Taux livraison</h6>
+<h6>Taux Livraison</h6>
 
 <h3 class="fw-bold text-warning">
+
 {{ taux_livraison }} %
+
 </h3>
 
 </div>
@@ -100,10 +76,12 @@ Déconnexion
 
 <div class="card-body">
 
-<h6 class="card-title">Score usine</h6>
+<h6>Score Usine</h6>
 
 <h3 class="fw-bold text-info">
+
 {{ score_usine }}/100
+
 </h3>
 
 </div>
@@ -115,9 +93,6 @@ Déconnexion
 </div>
 
 
-
-<!-- GRAPHIQUES -->
-
 <div class="row mt-4">
 
 <div class="col-lg-8">
@@ -126,7 +101,7 @@ Déconnexion
 
 <div class="card-body">
 
-<h5>Production mensuelle</h5>
+<h5>Production Mensuelle</h5>
 
 <div id="production-chart"></div>
 
@@ -137,14 +112,13 @@ Déconnexion
 </div>
 
 
-
 <div class="col-lg-4">
 
 <div class="card">
 
 <div class="card-body">
 
-<h5>Production annuelle</h5>
+<h5>Tendance Annuelle</h5>
 
 <div id="tendance-chart"></div>
 
@@ -157,9 +131,6 @@ Déconnexion
 </div>
 
 
-
-<!-- TABLEAU ACTIVITES -->
-
 <div class="row mt-4">
 
 <div class="col-lg-12">
@@ -168,7 +139,7 @@ Déconnexion
 
 <div class="card-body">
 
-<h5>Derniers ordres de fabrication</h5>
+<h5>Ordres de Fabrication</h5>
 
 <table class="table">
 
@@ -177,9 +148,10 @@ Déconnexion
 <tr>
 
 <th>Produit</th>
+
 <th>Quantité</th>
+
 <th>Date</th>
-<th>Status</th>
 
 </tr>
 
@@ -192,15 +164,10 @@ Déconnexion
 <tr>
 
 <td>{{ ordre.produit }}</td>
+
 <td>{{ ordre.quantite }}</td>
+
 <td>{{ ordre.date }}</td>
-<td>
-
-<span class="badge bg-success">
-Terminé
-</span>
-
-</td>
 
 </tr>
 
@@ -209,8 +176,6 @@ Terminé
 </tbody>
 
 </table>
-
-</div>
 
 </div>
 
