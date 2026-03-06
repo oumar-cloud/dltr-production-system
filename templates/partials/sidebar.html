@@ -1,24 +1,27 @@
 {% load static %}
 
 <aside class="left-sidebar">
-  <div class="scroll-sidebar">
+  <div>
+    <div class="brand-logo d-flex align-items-center justify-content-between">
+      <a href="/" class="text-nowrap logo-img">
+        <img src="{% static 'images/logos/logo.svg' %}" width="180">
+      </a>
+    </div>
 
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav scroll-sidebar">
 
       <ul id="sidebarnav">
 
-        <!-- Dashboard -->
         <li class="sidebar-item">
           <a class="sidebar-link" href="/">
             <span>Tableau de Bord</span>
           </a>
         </li>
 
-        <!-- PRODUCTION -->
         <li class="sidebar-item">
 
           <a class="sidebar-link has-arrow" href="javascript:void(0)">
-            Production
+            <span>Production</span>
           </a>
 
           <ul class="collapse first-level">
@@ -45,7 +48,6 @@
 
         </li>
 
-        <!-- MATIERES -->
         <li class="sidebar-item">
           <a class="sidebar-link" href="{% url 'matieres' %}">
             Matières Premières

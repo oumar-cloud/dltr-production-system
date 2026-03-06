@@ -4,107 +4,45 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Website{% endblock %}</title>
 
-<meta charset="UTF-8">
-<title>{% block title %}My Website{% endblock %}</title>
-
-<link rel="shortcut icon" href="{% static 'images/logos/favicon.png' %}">
-<link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
-
-<style>
-
-/* SIDEBAR MOBILE */
-
-@media (max-width: 991px){
-
-.left-sidebar{
-position:fixed;
-left:-260px;
-top:0;
-width:260px;
-height:100%;
-background:white;
-z-index:1050;
-transition:0.3s;
-}
-
-.left-sidebar.show{
-left:0;
-}
-
-.page-wrapper{
-margin-left:0 !important;
-}
-
-}
-
-</style>
+    {% block vendor_css %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logos/favicon.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}" />
+    {% endblock vendor_css %}
 
 </head>
 
 <body>
 
-{% include "partials/navbar.html" %}
-
-<div class="page-wrapper" id="main-wrapper">
-
-{% include "partials/sidebar.html" %}
-
-<main class="body-wrapper">
-
-{% block content %}
-
-{% endblock %}
-
-</main>
-
-</div>
-
+{% block vendor_js %}
 
 <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
 <script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-<script>
+<script src="{% static 'js/sidebarmenu.js' %}"></script>
+<script src="{% static 'js/app.min.js' %}"></script>
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js' %}"></script>
+<script src="{% static 'libs/simplebar/dist/simplebar.js' %}"></script>
 
-    document.addEventListener("DOMContentLoaded", function(){
-    
-    /* MENU MOBILE */
-    
-    const menuBtn = document.getElementById("menuToggle")
-    const sidebar = document.querySelector(".left-sidebar")
-    
-    menuBtn.addEventListener("click", function(){
-    
-    sidebar.classList.toggle("show")
-    
-    })
-    
-    /* SOUS MENU */
-    
-    const arrows = document.querySelectorAll(".has-arrow")
-    
-    arrows.forEach(function(arrow){
-    
-    arrow.addEventListener("click", function(){
-    
-    const submenu = this.nextElementSibling
-    
-    if(submenu.style.display === "block"){
-    
-    submenu.style.display = "none"
-    
-    }else{
-    
-    submenu.style.display = "block"
-    
-    }
-    
-    })
-    
-    })
-    
-    })
-    
-    </script>
+{% endblock vendor_js %}
+
+{% include "partials/navbar.html" %}
+
+<div class="page-wrapper" id="main-wrapper"
+     data-layout="vertical"
+     data-navbarbg="skin6"
+     data-sidebartype="full"
+     data-sidebar-position="fixed"
+     data-header-position="fixed">
+
+    {% include "partials/sidebar.html" %}
+
+    <div class="body-wrapper">
+        {% block content %}{% endblock %}
+    </div>
+
+</div>
 
 </body>
 </html>
