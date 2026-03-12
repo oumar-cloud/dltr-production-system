@@ -12,6 +12,7 @@
 
 <title>{% block title %}DLTR Industrie{% endblock %}</title>
 
+
 {% block vendor_css %}
 
 <link rel="shortcut icon" href="{% static 'images/logos/favicon.png' %}">
@@ -38,7 +39,9 @@ data-header-position="fixed">
 
 <div class="body-wrapper">
 
+
 {% include "partials/navbar.html" %}
+
 
 <div class="container-fluid">
 
@@ -51,6 +54,7 @@ data-header-position="fixed">
 </div>
 
 </div>
+
 
 
 {% block vendor_js %}
@@ -68,6 +72,7 @@ data-header-position="fixed">
 <script src="{% static 'libs/simplebar/dist/simplebar.js' %}"></script>
 
 {% endblock vendor_js %}
+
 
 {% block page_js %}
 
