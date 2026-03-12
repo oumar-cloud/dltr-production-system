@@ -8,19 +8,9 @@
 
 <li class="nav-item d-block d-xl-none">
 
-<a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse">
+<a class="nav-link sidebartoggler nav-icon-hover">
 
 <i class="ti ti-menu-2"></i>
-
-</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link nav-icon-hover" href="/">
-
-<i class="ti ti-home"></i>
 
 </a>
 
@@ -41,26 +31,20 @@
 <i class="ti ti-bell"></i>
 
 {% if matieres_alertes %}
-
 <span class="badge bg-danger rounded-circle">
-
 {{ matieres_alertes.count }}
-
 </span>
-
 {% endif %}
 
 </a>
 
-<div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up">
+<div class="dropdown-menu dropdown-menu-end">
 
-<div class="message-body">
-
-<h6 class="px-3 pt-3">Alertes Stock</h6>
+<h6 class="px-3 pt-2">Alertes Stock</h6>
 
 {% for matiere in matieres_alertes %}
 
-<a href="#" class="dropdown-item">
+<a class="dropdown-item">
 
 {{ matiere.nom }} sous minimum
 
@@ -78,8 +62,6 @@ Aucune alerte
 
 </div>
 
-</div>
-
 </li>
 
 
@@ -89,20 +71,17 @@ Aucune alerte
 <a class="nav-link nav-icon-hover" href="#" data-bs-toggle="dropdown">
 
 <img src="{% static 'images/profile/user-1.jpg' %}"
-
 width="35"
-
 height="35"
-
 class="rounded-circle">
 
 </a>
 
-<div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up">
+<div class="dropdown-menu dropdown-menu-end">
 
 <a class="dropdown-item" href="/admin/">
 
-Administrationn
+Administration
 
 </a>
 
